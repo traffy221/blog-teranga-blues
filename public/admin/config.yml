@@ -84,3 +84,51 @@ collections:
         name: "body"
         widget: "markdown"
         hint: "Écrivez votre article en Markdown"
+
+  # Gestion des Commentaires
+  - name: "comments"
+    label: "💬 Commentaires"
+    label_singular: "Commentaire"
+    folder: "content/comments"
+    create: false
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - label: "Slug de l'article"
+        name: "slug"
+        widget: "string"
+        hint: "L'article auquel ces commentaires appartiennent"
+      
+      - label: "Liste des commentaires"
+        name: "comments"
+        widget: "list"
+        summary: "{{fields.author}} - {{fields.date}}"
+        fields:
+          - label: "ID"
+            name: "id"
+            widget: "string"
+            hint: "ID unique du commentaire"
+          
+          - label: "Auteur"
+            name: "author"
+            widget: "string"
+          
+          - label: "Email"
+            name: "email"
+            widget: "string"
+            hint: "Visible seulement pour l'admin"
+          
+          - label: "Commentaire"
+            name: "comment"
+            widget: "text"
+          
+          - label: "Date"
+            name: "date"
+            widget: "datetime"
+          
+          - label: "Approuvé"
+            name: "approved"
+            widget: "boolean"
+            default: true
