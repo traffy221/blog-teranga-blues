@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Tag } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ShareButtons from '@/components/ShareButtons';
 import { getPostBySlug, getAllPostSlugs, getRelatedPosts } from '@/lib/mdx';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -128,21 +129,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         />
                     </div>
 
-                    {/* Share Section */}
-                    <Card className="bg-muted/30 border border-border p-8 mb-16">
-                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    {/* Share Section - Premium */}
+                    <Card className="glass-effect border border-primary/10 rounded-2xl p-8 mb-16">
+                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                             <div>
-                                <h3 className="font-serif font-semibold text-lg mb-1 text-foreground">
-                                    Cet article vous a plu ?
+                                <h3 className="text-2xl font-serif font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                    Cet article vous a plu ? 💫
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Partagez-le avec votre réseau
+                                    Partagez-le avec votre réseau et participez au dialogue !
                                 </p>
                             </div>
-                            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover-lift transition-smooth flex items-center space-x-2">
-                                <Share2 className="w-4 h-4" />
-                                <span className="font-medium">Partager</span>
-                            </button>
+                            <ShareButtons title={post.title} url={`/blog/${slug}`} excerpt={post.excerpt} />
                         </div>
                     </Card>
 

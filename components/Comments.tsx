@@ -1,6 +1,7 @@
 'use client';
 
 import Giscus from '@giscus/react';
+import { MessageSquare } from 'lucide-react';
 
 interface CommentsProps {
     slug: string;
@@ -8,21 +9,29 @@ interface CommentsProps {
 
 export default function Comments({ slug }: CommentsProps) {
     return (
-        <div className="bg-white/15 backdrop-blur-xl border border-white/30 p-8 rounded-lg mt-12">
-            <h2 className="text-2xl font-bold mb-6">Quantum Comment Threads</h2>
+        <div className="glass-effect border border-primary/10 p-8 rounded-2xl mt-12">
+            <div className="flex items-center gap-3 mb-6">
+                <MessageSquare className="w-6 h-6 text-primary animate-float-gentle" />
+                <h2 className="text-3xl font-serif font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Quantum Comment Threads
+                </h2>
+            </div>
+            <p className="text-muted-foreground mb-6">
+                Participez à la discussion et partagez vos réflexions ! 💬✨
+            </p>
             <Giscus
                 id="comments"
-                repo="yourusername/your-repo" // Replace with your repo
-                repoId="YOUR_REPO_ID" // Replace with your repo ID
+                repo="traffy221/-Complete-luxury-Gen-Z-redesign-with-purple-gold-theme"
+                repoId="R_kgDONjg5Kg" // Automatiquement récupéré de GitHub
                 category="General"
-                categoryId="YOUR_CATEGORY_ID" // Replace with your category ID
+                categoryId="DIC_kwDONjg5Ks4ClUBM" // ID automatique de GitHub Discussions
                 mapping="pathname"
                 term={slug}
                 reactionsEnabled="1"
                 emitMetadata="0"
                 inputPosition="top"
                 theme="transparent_dark"
-                lang="en"
+                lang="fr"
                 loading="lazy"
             />
         </div>
