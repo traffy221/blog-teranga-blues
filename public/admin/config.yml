@@ -32,6 +32,12 @@ collections:
         time_format: false
         default: ""
       
+      - label: "Auteur"
+        name: "author"
+        widget: "string"
+        default: "Traffy"
+        hint: "Nom de l'auteur de l'article"
+      
       - label: "Résumé"
         name: "excerpt"
         widget: "text"
