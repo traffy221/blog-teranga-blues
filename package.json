@@ -1,6 +1,7 @@
 {
-  "name": "blog",
+  "name": "teranga-blues",
   "version": "0.1.0",
+  "description": "A soulful blog platform celebrating African hospitality and wisdom",
   "private": true,
   "scripts": {
     "dev": "next dev",

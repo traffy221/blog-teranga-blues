@@ -19,13 +19,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "#221 Blog | Réflexions & Société",
-  description: "Réflexions personnelles sur la vie, la société, et les questions qui nous touchent profondément.",
-  keywords: ["blog", "réflexions", "société", "vie", "philosophie"],
+  title: "Teranga Blues | Réflexions & Société",
+  description: "Réflexions personnelles sur la vie, la société, et les questions qui nous touchent profondément. Un espace de partage inspiré par la teranga - l'hospitalité africaine.",
+  keywords: ["blog", "réflexions", "société", "vie", "philosophie", "teranga", "pensées"],
   authors: [{ name: "Traffy" }],
   openGraph: {
-    title: "#221 Blog",
-    description: "La vie c'est comme un piano...",
+    title: "Teranga Blues",
+    description: "La vie c'est comme un piano... les touches blanches représentent le bonheur, les noires la tristesse.",
     type: "website",
   },
 };
