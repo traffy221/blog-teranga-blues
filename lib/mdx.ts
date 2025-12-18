@@ -34,9 +34,31 @@ export function getAllPostSlugs(): string[] {
 }
 
 // Get post data by slug
+// Get post data by slug
 export async function getPostBySlug(slug: string): Promise<Post | null> {
     try {
-        const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+        // Try exact match first
+        let fullPath = path.join(postsDirectory, `${slug}.mdx`);
+
+        // If file doesn't exist, try verifying if the slug is encoded or needs normalization
+        if (!fs.existsSync(fullPath)) {
+            // Decode URL if it was passed encoded
+            const decodedSlug = decodeURIComponent(slug);
+            fullPath = path.join(postsDirectory, `${decodedSlug}.mdx`);
+
+            // If still doesn't exist, try the "safe" slugified version (handling accents)
+            if (!fs.existsSync(fullPath)) {
+                const { slugify } = await import('./utils');
+                const safeSlug = slugify(decodedSlug);
+                fullPath = path.join(postsDirectory, `${safeSlug}.mdx`);
+            }
+        }
+
+        // If even the safe version doesn't exist, checking if it was double-encoded or similar edge case
+        if (!fs.existsSync(fullPath)) {
+            return null;
+        }
+
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
 
@@ -46,7 +68,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
             slug,
             title: data.title || 'Untitled',
             date: data.date || new Date().toISOString(),
-            author: data.author || 'Anonymous',
+            author: data.author || 'Traffy',
             excerpt: data.excerpt || content.substring(0, 160) + '...',
             category: data.category || 'Uncategorized',
             tags: data.tags || [],
@@ -55,7 +77,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
             content,
         };
     } catch (error) {
-        return null;
+        return null; // Return null if file not found
     }
 }
 
