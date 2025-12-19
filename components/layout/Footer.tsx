@@ -96,7 +96,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p className="text-sm text-muted-foreground">
-                        © {currentYear} #221 Blog. Réflexions & Société.
+                        Conçu et développé avec ❤️ par Papa Daouda Ndiaye
                     </p>
                     <div className="flex space-x-6 text-sm text-muted-foreground">
                         <Link href="/privacy" className="hover:text-primary transition-colors">

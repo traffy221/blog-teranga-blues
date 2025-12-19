@@ -20,8 +20,8 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                    ? 'glass-effect border-b border-border'
-                    : 'bg-transparent'
+                ? 'glass-effect border-b border-border'
+                : 'bg-transparent'
                 }`}
         >
             <nav className="container mx-auto px-6 py-5">
@@ -57,6 +57,15 @@ export default function Header() {
                             Catégories
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
                         </Link>
+                        <a
+                            href="https://traffy-portfolio.netlify.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground/80 hover:text-primary transition-all duration-400 text-sm font-medium relative group"
+                        >
+                            Mon Portfolio
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                        </a>
                     </div>
 
                     {/* Search Icon with Glow */}
@@ -105,6 +114,15 @@ export default function Header() {
                         >
                             Catégories
                         </Link>
+                        <a
+                            href="https://traffy-portfolio.netlify.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block py-2 text-foreground/70 hover:text-primary transition-all duration-300"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Mon Portfolio
+                        </a>
                     </div>
                 )}
             </nav>
